@@ -1,0 +1,37 @@
+name: dices_supporter
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.7.0 <3.0.0"
+
+dependencies:
+  shared_preferences: ^2.0.5
+  easy_localization: ^3.0.0
+  fluttertoast: ^4.0.1
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+
+  uses-material-design: true
+  assets:
+    - assets/en-US.json
+    - assets/ko-KR.json
+    - assets/ja-JP.json
+    - images/dice1.png
+    - images/dice2.png
+    - images/dice3.png
+    - images/dice4.png
+    - images/dice5.png
+    - images/dice6.png
+
