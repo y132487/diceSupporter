@@ -31,62 +31,64 @@ class _DiceMainState extends State<DiceMain> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: <Widget>[
-          Expanded(
-            flex: 1,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: SettingBtn(),
-                ),
-                Expanded(
-                  flex: 5,
-                  child: Container(
-                    child: DiceSetupBtn(setDiceNum),
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: <Widget>[
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: SettingBtn(),
                   ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: ReRollBtn(),
+                  Expanded(
+                    flex: 5,
+                    child: Container(
+                      child: DiceSetupBtn(setDiceNum),
+                    ),
                   ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: Result(result),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: Container(
-                    child: RollBtn(setResult),
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Expanded(
-            flex: 10,
-            child: Container(
-              color: Colors.yellow,
-              child: Center(
-                child: Text("Dices(GridView)"),
+                ],
               ),
             ),
-          ),
-        ],
+            Expanded(
+              flex: 1,
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: ReRollBtn(),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: Result(result),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Container(
+                      child: RollBtn(setResult),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            Expanded(
+              flex: 10,
+              child: Container(
+                color: Colors.yellow,
+                child: Center(
+                  child: Text("Dices(GridView)"),
+                ),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
