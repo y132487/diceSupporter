@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class DiceSetupBean extends StatefulWidget {
   final int number;
+  final int resultNum = 0;
   DiceSetupBean(this.number);
 
   @override
@@ -26,7 +27,7 @@ class _DiceSetupBeanState extends State<DiceSetupBean> {
             Container(
               padding: EdgeInsets.only(left: 2, right: 5),
               child: Text(
-                "99",
+                widget.resultNum.toString(),
                 style: TextStyle(
                     fontSize: constraints.maxHeight / 4,
                     fontWeight: FontWeight.bold),

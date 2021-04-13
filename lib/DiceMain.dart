@@ -1,3 +1,4 @@
+import 'package:dices_supporter/bottom/ViewDices.dart';
 import 'package:dices_supporter/middle/ReRollBtn.dart';
 import 'package:dices_supporter/middle/Result.dart';
 import 'package:dices_supporter/middle/RollBtn.dart';
@@ -14,8 +15,29 @@ class DiceMain extends StatefulWidget {
 }
 
 class _DiceMainState extends State<DiceMain> {
+  bool rolled = false;
   int result = 0;
   double diceNum = 1;
+  List checkedList = <bool>[
+    false,
+    false,
+    false,
+    false,
+    false,
+    false,
+    false
+  ]; //index0 is dummy flag
+
+  //after tapped roll button(or reroll button)
+  List<bool> resultDiceList;
+  List<int> numDiceList;
+  List<bool> selectedDiceList;
+
+  void setRolled(bool rolled) {
+    setState(() {
+      this.rolled = rolled;
+    });
+  }
 
   void setResult(int result) {
     setState(() {
@@ -27,6 +49,16 @@ class _DiceMainState extends State<DiceMain> {
     setState(() {
       this.diceNum = diceNum;
     });
+  }
+
+  void setCheckedList(List checkedList) {
+    this.checkedList = checkedList;
+    print(checkedList.toString());
+  }
+
+  void updateCheckedList(int num, bool checked) {
+    this.checkedList[num] = checked;
+    print(checkedList.toString());
   }
 
   @override
@@ -47,7 +79,8 @@ class _DiceMainState extends State<DiceMain> {
                   Expanded(
                     flex: 5,
                     child: Container(
-                      child: DiceSetupBtn(setDiceNum),
+                      child: DiceSetupBtn(setDiceNum, setCheckedList,
+                          updateCheckedList, setRolled),
                     ),
                   ),
                 ],
@@ -66,13 +99,13 @@ class _DiceMainState extends State<DiceMain> {
                   Expanded(
                     flex: 1,
                     child: Container(
-                      child: Result(result),
+                      child: Result(result, rolled),
                     ),
                   ),
                   Expanded(
                     flex: 1,
                     child: Container(
-                      child: RollBtn(setResult),
+                      child: RollBtn(setResult, setRolled),
                     ),
                   ),
                 ],
@@ -81,9 +114,8 @@ class _DiceMainState extends State<DiceMain> {
             Expanded(
               flex: 10,
               child: Container(
-                color: Colors.yellow,
                 child: Center(
-                  child: Text("Dices(GridView)"),
+                  child: ViewDices(rolled),
                 ),
               ),
             ),

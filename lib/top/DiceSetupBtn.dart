@@ -8,7 +8,11 @@ import 'package:easy_localization/easy_localization.dart';
 
 class DiceSetupBtn extends StatefulWidget {
   final Function setDiceNum;
-  DiceSetupBtn(this.setDiceNum);
+  final Function setCheckedList;
+  final Function updateCheckedList;
+  final Function setRolled;
+  DiceSetupBtn(this.setDiceNum, this.setCheckedList, this.updateCheckedList,
+      this.setRolled);
 
   @override
   _DiceSetupBtnState createState() => _DiceSetupBtnState();
@@ -24,12 +28,15 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
   double diceNum = 1;
 
   void _setCheckedToXml(int number, bool checked) {
+    widget.setRolled(false);
     setState(() {
       prefs.setBool('checked$number', checked);
     });
+    widget.updateCheckedList(number, checked);
   }
 
   void _setDiceNumToXml(double diceNum) {
+    widget.setRolled(false);
     setState(() {
       prefs.setDouble('diceNum', diceNum);
       widget.setDiceNum(diceNum);
@@ -49,6 +56,19 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
     this.diceNum = prefs.getDouble('diceNum') ?? 1;
   }
 
+  void _initCheckedList() {
+    List checkedList = <bool>[
+      false, //dummy flag
+      checked1,
+      checked2,
+      checked3,
+      checked4,
+      checked5,
+      checked6,
+    ];
+    widget.setCheckedList(checkedList);
+  }
+
   @override
   void initState() {
     super.initState();
@@ -56,6 +76,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
       _loadCheckedFromXml();
       _loadDiceNumFromXml();
     });
+    _initCheckedList();
   }
 
   @override

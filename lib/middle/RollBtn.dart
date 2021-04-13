@@ -5,7 +5,8 @@ import '../main.dart';
 
 class RollBtn extends StatefulWidget {
   final Function setResult;
-  RollBtn(this.setResult);
+  final Function setRolled;
+  RollBtn(this.setResult, this.setRolled);
   @override
   _RollBtnState createState() => _RollBtnState();
 }
@@ -39,6 +40,8 @@ class _RollBtnState extends State<RollBtn> {
     a = prefs.getInt('test');
 
     widget.setResult(a);
+
+    widget.setRolled(true);
 
     Fluttertoast.showToast(
       msg: '$a',
