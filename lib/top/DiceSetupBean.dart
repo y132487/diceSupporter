@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class DiceSetupBean extends StatefulWidget {
   final int number;
-  final int resultNum = 0;
-  DiceSetupBean(this.number);
+  final int resultNum;
+  DiceSetupBean(this.number, this.resultNum);
 
   @override
   _DiceSetupBeanState createState() => _DiceSetupBeanState();

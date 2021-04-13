@@ -4,9 +4,9 @@ import 'package:fluttertoast/fluttertoast.dart';
 import '../main.dart';
 
 class RollBtn extends StatefulWidget {
-  final Function setResult;
   final Function setRolled;
-  RollBtn(this.setResult, this.setRolled);
+  final Function rollToResult;
+  RollBtn(this.setRolled, this.rollToResult);
   @override
   _RollBtnState createState() => _RollBtnState();
 }
@@ -23,7 +23,8 @@ class _RollBtnState extends State<RollBtn> {
       ),
       onTap: () {
         setState(() {
-          _increamentCount();
+          widget.setRolled(true);
+          widget.rollToResult();
         });
       },
     );
@@ -39,9 +40,7 @@ class _RollBtnState extends State<RollBtn> {
 
     a = prefs.getInt('test');
 
-    widget.setResult(a);
 
-    widget.setRolled(true);
 
     Fluttertoast.showToast(
       msg: '$a',

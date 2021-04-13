@@ -1,3 +1,4 @@
+import 'package:dices_supporter/bean/DiceBean.dart';
 import 'package:dices_supporter/main.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -11,8 +12,9 @@ class DiceSetupBtn extends StatefulWidget {
   final Function setCheckedList;
   final Function updateCheckedList;
   final Function setRolled;
+  var diceBeanList=<DiceBean>[];
   DiceSetupBtn(this.setDiceNum, this.setCheckedList, this.updateCheckedList,
-      this.setRolled);
+      this.setRolled,this.diceBeanList);
 
   @override
   _DiceSetupBtnState createState() => _DiceSetupBtnState();
@@ -54,6 +56,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
 
   void _loadDiceNumFromXml() {
     this.diceNum = prefs.getDouble('diceNum') ?? 1;
+    widget.setDiceNum(diceNum);
   }
 
   void _initCheckedList() {
@@ -67,6 +70,19 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
       checked6,
     ];
     widget.setCheckedList(checkedList);
+  }
+
+  int _getEachResult(int num){
+    int result=0;
+    if(widget.diceBeanList.isEmpty) return result;
+    for(int i=0; i<widget.diceBeanList.length; i++){
+      if(widget.diceBeanList[i] != null){
+        if(widget.diceBeanList[i].diceNum == num){
+          result++;
+        }
+      }
+    }
+    return result;
   }
 
   @override
@@ -94,12 +110,12 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                 !checked5 &&
                 !checked6)
               Center(child: Text("tapHere".tr())),
-            if (checked1) DiceSetupBean(1),
-            if (checked2) DiceSetupBean(2),
-            if (checked3) DiceSetupBean(3),
-            if (checked4) DiceSetupBean(4),
-            if (checked5) DiceSetupBean(5),
-            if (checked6) DiceSetupBean(6),
+            if (checked1) DiceSetupBean(1,_getEachResult(1)),
+            if (checked2) DiceSetupBean(2,_getEachResult(2)),
+            if (checked3) DiceSetupBean(3,_getEachResult(3)),
+            if (checked4) DiceSetupBean(4,_getEachResult(4)),
+            if (checked5) DiceSetupBean(5,_getEachResult(5)),
+            if (checked6) DiceSetupBean(6,_getEachResult(6)),
           ],
         ),
         onTap: () {

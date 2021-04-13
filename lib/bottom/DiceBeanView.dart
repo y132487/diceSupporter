@@ -1,15 +1,18 @@
+import 'package:dices_supporter/bean/DiceBean.dart';
 import 'package:flutter/material.dart';
 
 class DiceBeanView extends StatefulWidget {
-  final int diceNum;
-  DiceBeanView(this.diceNum);
+  final DiceBean diceBean;
+  DiceBeanView(this.diceBean);
   @override
   _DiceBeanState createState() => _DiceBeanState();
 }
 
 class _DiceBeanState extends State<DiceBeanView> {
+  
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+    );
   }
 }
