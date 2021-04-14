@@ -37,7 +37,7 @@ class _DiceMainState extends State<DiceMain> {
   void setRolled(bool rolled) {
     setState(() {
       this.rolled = rolled;
-      this.diceBeanList=[];
+      this.diceBeanList = [];
     });
   }
 
@@ -60,16 +60,18 @@ class _DiceMainState extends State<DiceMain> {
   }
 
   //Tap on ROLL Button
-  void rollToResult(){
+  void rollToResult() {
     setState(() {
       int diceNum = this.diceNum.toInt();
       this.diceBeanList = [];
-      int result=0;
+      int result = 0;
       var rnd = Random();
-      for(int i=0; i < diceNum; i++){
-        int randomNum = rnd.nextInt(6)+1;
-        this.diceBeanList.add(DiceBean(randomNum, this.checkedList[randomNum], false));
-        if(this.checkedList[randomNum]){
+      for (int i = 0; i < diceNum; i++) {
+        int randomNum = rnd.nextInt(6) + 1;
+        this
+            .diceBeanList
+            .add(DiceBean(randomNum, false, this.checkedList[randomNum]));
+        if (this.checkedList[randomNum]) {
           result++;
         }
       }
@@ -131,7 +133,7 @@ class _DiceMainState extends State<DiceMain> {
               flex: 10,
               child: Container(
                 child: Center(
-                  child: ViewDices(rolled,diceBeanList),
+                  child: ViewDices(rolled, diceBeanList),
                 ),
               ),
             ),

@@ -9,10 +9,10 @@ class DiceBeanView extends StatefulWidget {
 }
 
 class _DiceBeanState extends State<DiceBeanView> {
-  
   @override
   Widget build(BuildContext context) {
     return Container(
+      child: Image.asset(widget.diceBean.diceImgPath),
     );
   }
 }

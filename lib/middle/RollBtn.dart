@@ -29,24 +29,4 @@ class _RollBtnState extends State<RollBtn> {
       },
     );
   }
-
-  _increamentCount() {
-    int a = prefs.getInt('test') ?? 0;
-    if (a >= 99) {
-      prefs.setInt('test', 0);
-    } else {
-      prefs.setInt('test', a + 1);
-    }
-
-    a = prefs.getInt('test');
-
-
-
-    Fluttertoast.showToast(
-      msg: '$a',
-      //toastLength: Toast.LENGTH_SHORT,
-      gravity: ToastGravity.CENTER,
-      //timeInSecForIosWeb: 3
-    );
-  }
 }
