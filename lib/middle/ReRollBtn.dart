@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class ReRollBtn extends StatefulWidget {
+  final Function reRollToResult;
+  ReRollBtn(this.reRollToResult);
   @override
   _ReRollBtnState createState() => _ReRollBtnState();
 }
@@ -11,11 +14,15 @@ class _ReRollBtnState extends State<ReRollBtn> {
     return InkWell(
       child: Container(
         child: Center(
-          child: Text("REROLL"),
+          child: Text("btnReRoll".tr()),
         ),
         decoration: BoxDecoration(border: Border.all()),
       ),
-      onTap: () {},
+      onTap: () {
+        setState(() {
+          widget.reRollToResult();
+        });
+      },
     );
   }
 }

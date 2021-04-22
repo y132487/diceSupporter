@@ -12,9 +12,9 @@ class DiceSetupBtn extends StatefulWidget {
   final Function setCheckedList;
   final Function updateCheckedList;
   final Function setRolled;
-  var diceBeanList=<DiceBean>[];
+  var diceBeanList = <DiceBean>[];
   DiceSetupBtn(this.setDiceNum, this.setCheckedList, this.updateCheckedList,
-      this.setRolled,this.diceBeanList);
+      this.setRolled, this.diceBeanList);
 
   @override
   _DiceSetupBtnState createState() => _DiceSetupBtnState();
@@ -27,7 +27,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
   bool checked4 = false;
   bool checked5 = false;
   bool checked6 = false;
-  double diceNum = 1;
+  double diceCount = 1;
 
   void _setCheckedToXml(int number, bool checked) {
     widget.setRolled(false);
@@ -55,8 +55,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
   }
 
   void _loadDiceNumFromXml() {
-    this.diceNum = prefs.getDouble('diceNum') ?? 1;
-    widget.setDiceNum(diceNum);
+    this.diceCount = prefs.getDouble('diceNum') ?? 1;
+    widget.setDiceNum(diceCount);
   }
 
   void _initCheckedList() {
@@ -72,12 +72,12 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
     widget.setCheckedList(checkedList);
   }
 
-  int _getEachResult(int num){
-    int result=0;
-    if(widget.diceBeanList.isEmpty) return result;
-    for(int i=0; i<widget.diceBeanList.length; i++){
-      if(widget.diceBeanList[i] != null){
-        if(widget.diceBeanList[i].diceNum == num){
+  int _getEachResult(int num) {
+    int result = 0;
+    if (widget.diceBeanList.isEmpty) return result;
+    for (int i = 0; i < widget.diceBeanList.length; i++) {
+      if (widget.diceBeanList[i] != null) {
+        if (widget.diceBeanList[i].diceNum == num) {
           result++;
         }
       }
@@ -110,12 +110,12 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                 !checked5 &&
                 !checked6)
               Center(child: Text("tapHere".tr())),
-            if (checked1) DiceSetupBean(1,_getEachResult(1)),
-            if (checked2) DiceSetupBean(2,_getEachResult(2)),
-            if (checked3) DiceSetupBean(3,_getEachResult(3)),
-            if (checked4) DiceSetupBean(4,_getEachResult(4)),
-            if (checked5) DiceSetupBean(5,_getEachResult(5)),
-            if (checked6) DiceSetupBean(6,_getEachResult(6)),
+            if (checked1) DiceSetupBean(1, _getEachResult(1)),
+            if (checked2) DiceSetupBean(2, _getEachResult(2)),
+            if (checked3) DiceSetupBean(3, _getEachResult(3)),
+            if (checked4) DiceSetupBean(4, _getEachResult(4)),
+            if (checked5) DiceSetupBean(5, _getEachResult(5)),
+            if (checked6) DiceSetupBean(6, _getEachResult(6)),
           ],
         ),
         onTap: () {
@@ -142,7 +142,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
                                   Slider(
-                                    value: diceNum,
+                                    value: diceCount,
                                     min: 1,
                                     max: 20,
                                     divisions: 20,
@@ -150,7 +150,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                     inactiveColor: Colors.black,
                                     onChanged: (double newValue) {
                                       setState(() {
-                                        diceNum = newValue;
+                                        diceCount = newValue;
                                       });
                                     },
                                     onChangeEnd: (double newValue) {
@@ -159,7 +159,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Text(diceNum.toInt().toString()),
+                                  Text(diceCount.toInt().toString()),
                                 ],
                               ),
                               Row(

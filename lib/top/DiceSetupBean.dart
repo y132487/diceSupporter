@@ -19,9 +19,10 @@ class _DiceSetupBeanState extends State<DiceSetupBean> {
             Container(
               child: Image.asset(
                 'images/dice${widget.number}.png',
-                //width: MediaQuery.of(context).size.width / 20,
-                //height: MediaQuery.of(context).size.height / 20,
-                height: constraints.maxHeight / 3,
+                height:
+                    MediaQuery.of(context).orientation == Orientation.portrait
+                        ? constraints.maxHeight / 3
+                        : constraints.maxHeight / 1.5,
               ),
             ),
             Container(
@@ -29,7 +30,10 @@ class _DiceSetupBeanState extends State<DiceSetupBean> {
               child: Text(
                 widget.resultNum.toString(),
                 style: TextStyle(
-                    fontSize: constraints.maxHeight / 4,
+                    fontSize: MediaQuery.of(context).orientation ==
+                            Orientation.portrait
+                        ? constraints.maxHeight / 4
+                        : constraints.maxHeight / 2,
                     fontWeight: FontWeight.bold),
               ),
             ),

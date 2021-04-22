@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
-
-import '../main.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class RollBtn extends StatefulWidget {
   final Function setRolled;
@@ -17,7 +15,7 @@ class _RollBtnState extends State<RollBtn> {
     return InkWell(
       child: Container(
         child: Center(
-          child: Text("ROLL"),
+          child: Text("ROLL".tr()),
         ),
         decoration: BoxDecoration(border: Border.all()),
       ),

@@ -8,6 +8,8 @@ import 'package:dices_supporter/middle/RollBtn.dart';
 import 'package:dices_supporter/top/DiceSetupBtn.dart';
 import 'package:dices_supporter/top/SettingBtn.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class DiceMain extends StatefulWidget {
   final String title;
@@ -20,7 +22,7 @@ class DiceMain extends StatefulWidget {
 class _DiceMainState extends State<DiceMain> {
   bool rolled = false;
   int result = 0;
-  double diceNum = 1;
+  double diceCount = 1;
   List checkedList = <bool>[
     false,
     false,
@@ -47,8 +49,8 @@ class _DiceMainState extends State<DiceMain> {
     });
   }
 
-  void setDiceNum(double diceNum) {
-    this.diceNum = diceNum;
+  void setDiceNum(double diceCount) {
+    this.diceCount = diceCount;
   }
 
   void setCheckedList(List checkedList) {
@@ -62,20 +64,71 @@ class _DiceMainState extends State<DiceMain> {
   //Tap on ROLL Button
   void rollToResult() {
     setState(() {
-      int diceNum = this.diceNum.toInt();
+      int diceCount = this.diceCount.toInt();
       this.diceBeanList = [];
       int result = 0;
       var rnd = Random();
-      for (int i = 0; i < diceNum; i++) {
+      for (int i = 0; i < diceCount; i++) {
         int randomNum = rnd.nextInt(6) + 1;
         this
             .diceBeanList
-            .add(DiceBean(randomNum, false, this.checkedList[randomNum]));
+            .add(DiceBean(i, randomNum, false, this.checkedList[randomNum]));
         if (this.checkedList[randomNum]) {
           result++;
         }
       }
       setResult(result);
+    });
+  }
+
+  //Tap on REROLL Button
+  void reRollToResult() {
+    if (!rolled) {
+      Fluttertoast.showToast(msg: "tstPlzFirstRoll".tr());
+      return;
+    } else {
+      bool selectedOne = false;
+      for (int i = 0; i < this.diceBeanList.length; i++) {
+        if (this.diceBeanList[i].diceSelected) {
+          selectedOne = this.diceBeanList[i].diceSelected;
+          break;
+        }
+      }
+      if (!selectedOne) {
+        Fluttertoast.showToast(msg: "tstNoSelectedDices".tr());
+        return;
+      }
+    }
+
+    setState(() {
+      int result = 0;
+      var rnd = Random();
+      for (int i = 0; i < this.diceBeanList.length; i++) {
+        int diceNum = 0;
+        if (this.diceBeanList[i].diceSelected) {
+          int randomNum = rnd.nextInt(6) + 1;
+          this.diceBeanList[i] =
+              DiceBean(i, randomNum, false, this.checkedList[randomNum]);
+          diceNum = randomNum;
+        } else {
+          diceNum = this.diceBeanList[i].diceNum;
+        }
+        if (this.checkedList[diceNum]) {
+          result++;
+        }
+      }
+      setResult(result);
+    });
+  }
+
+  //Tap on Dices of Bottom
+  void updateSelectedDice(int idNum) {
+    setState(() {
+      if (diceBeanList[idNum].diceSelected) {
+        diceBeanList[idNum].diceSelected = false;
+      } else {
+        diceBeanList[idNum].diceSelected = true;
+      }
     });
   }
 
@@ -111,7 +164,7 @@ class _DiceMainState extends State<DiceMain> {
                   Expanded(
                     flex: 1,
                     child: Container(
-                      child: ReRollBtn(),
+                      child: ReRollBtn(reRollToResult),
                     ),
                   ),
                   Expanded(
@@ -133,7 +186,7 @@ class _DiceMainState extends State<DiceMain> {
               flex: 10,
               child: Container(
                 child: Center(
-                  child: ViewDices(rolled, diceBeanList),
+                  child: ViewDices(rolled, diceBeanList, updateSelectedDice),
                 ),
               ),
             ),

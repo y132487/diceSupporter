@@ -2,5 +2,9 @@
     "diceChooseTitle":"Setup your Dice Count\nAnd Success Dices",
     "tapHere":"Tap Here at First Step",
     "noResult":"Please Set your Dice and Tap [ROLL] Button",
-    "result":"RESULT"
+    "result":"RESULT",
+    "btnRoll":"ROLL",
+    "btnReRoll":"REROLL",
+    "tstPlzFirstRoll":"You must do Roll before Reroll",
+    "tstNoSelectedDices":"Select Dices before Reroll"
 }
