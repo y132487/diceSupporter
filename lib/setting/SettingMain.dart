@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 
 class SettingMain extends StatefulWidget {
-
   Function setSettingBeanToXml;
 
   SettingMain(this.setSettingBeanToXml);
@@ -15,13 +14,12 @@ class SettingMain extends StatefulWidget {
 }
 
 class _SettingMainState extends State<SettingMain> {
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title:Text("settingMenuTitle".tr()),
+          title: Text("settingMenuTitle".tr()),
         ),
         body: Scrollbar(
           child: SingleChildScrollView(
@@ -33,10 +31,10 @@ class _SettingMainState extends State<SettingMain> {
                     RadioListTile(
                         title: Text("setLangEn".tr()),
                         controlAffinity: ListTileControlAffinity.trailing,
-                        value: describeEnum(Language.en),
+                        value: describeEnum(Language.en_US),
                         activeColor: Colors.black,
                         groupValue: SettingBean.lang,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.lang = value;
                             widget.setSettingBeanToXml();
@@ -46,10 +44,10 @@ class _SettingMainState extends State<SettingMain> {
                     RadioListTile(
                         title: Text("setLangJa".tr()),
                         controlAffinity: ListTileControlAffinity.trailing,
-                        value: describeEnum(Language.ja),
+                        value: describeEnum(Language.ja_JP),
                         activeColor: Colors.black,
                         groupValue: SettingBean.lang,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.lang = value;
                             widget.setSettingBeanToXml();
@@ -59,10 +57,10 @@ class _SettingMainState extends State<SettingMain> {
                     RadioListTile(
                         title: Text("setLangKo".tr()),
                         controlAffinity: ListTileControlAffinity.trailing,
-                        value: describeEnum(Language.ko),
+                        value: describeEnum(Language.ko_KR),
                         activeColor: Colors.black,
                         groupValue: SettingBean.lang,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.lang = value;
                             widget.setSettingBeanToXml();
@@ -81,7 +79,7 @@ class _SettingMainState extends State<SettingMain> {
                         activeColor: Colors.black,
                         value: describeEnum(DiceImgPath.normal),
                         groupValue: SettingBean.diceImgPath,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceImgPath = value;
                             widget.setSettingBeanToXml();
@@ -94,7 +92,7 @@ class _SettingMainState extends State<SettingMain> {
                         activeColor: Colors.black,
                         value: describeEnum(DiceImgPath.number),
                         groupValue: SettingBean.diceImgPath,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceImgPath = value;
                             widget.setSettingBeanToXml();
@@ -107,7 +105,7 @@ class _SettingMainState extends State<SettingMain> {
                         activeColor: Colors.black,
                         value: describeEnum(DiceImgPath.kanji),
                         groupValue: SettingBean.diceImgPath,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceImgPath = value;
                             widget.setSettingBeanToXml();
@@ -116,51 +114,55 @@ class _SettingMainState extends State<SettingMain> {
                   ],
                 ),
                 ExpansionTile(
-                    title: Text("setSelectedColorTitle".tr()),
+                  title: Text("setSelectedColorTitle".tr()),
                   children: [
                     RadioListTile(
-                        title: Text("setSelectedColorBlue".tr(), style: TextStyle(color:Colors.blue)),
+                        title: Text("setSelectedColorBlue".tr(),
+                            style: TextStyle(color: Colors.blue)),
                         activeColor: Colors.blue,
                         controlAffinity: ListTileControlAffinity.trailing,
                         value: describeEnum(DiceColor.blue),
                         groupValue: SettingBean.diceColor,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceColor = value;
                             widget.setSettingBeanToXml();
                           });
                         }),
                     RadioListTile(
-                        title: Text("setSelectedColorRed".tr(), style: TextStyle(color:Colors.red)),
+                        title: Text("setSelectedColorRed".tr(),
+                            style: TextStyle(color: Colors.red)),
                         activeColor: Colors.red,
                         controlAffinity: ListTileControlAffinity.trailing,
                         value: describeEnum(DiceColor.red),
                         groupValue: SettingBean.diceColor,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceColor = value;
                             widget.setSettingBeanToXml();
                           });
                         }),
                     RadioListTile(
-                        title: Text("setSelectedColorAmber".tr(), style: TextStyle(color:Colors.amber)),
+                        title: Text("setSelectedColorAmber".tr(),
+                            style: TextStyle(color: Colors.amber)),
                         activeColor: Colors.amber,
                         controlAffinity: ListTileControlAffinity.trailing,
                         value: describeEnum(DiceColor.amber),
                         groupValue: SettingBean.diceColor,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceColor = value;
                             widget.setSettingBeanToXml();
                           });
                         }),
                     RadioListTile(
-                        title: Text("setSelectedColorGreen".tr(), style: TextStyle(color:Colors.green)),
+                        title: Text("setSelectedColorGreen".tr(),
+                            style: TextStyle(color: Colors.green)),
                         activeColor: Colors.green,
                         controlAffinity: ListTileControlAffinity.trailing,
                         value: describeEnum(DiceColor.green),
                         groupValue: SettingBean.diceColor,
-                        onChanged: (value){
+                        onChanged: (value) {
                           setState(() {
                             SettingBean.diceColor = value;
                             widget.setSettingBeanToXml();
@@ -170,9 +172,7 @@ class _SettingMainState extends State<SettingMain> {
                 ),
                 ListTile(
                   title: Text("setDeveloperTitle".tr()),
-                  onTap: (){
-
-                  },
+                  onTap: () {},
                 ),
                 ListTile(
                   title: Text("setVersionTitle".tr()),
@@ -181,7 +181,6 @@ class _SettingMainState extends State<SettingMain> {
             ),
           ),
         ),
-
       ),
     );
   }

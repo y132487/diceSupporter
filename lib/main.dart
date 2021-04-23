@@ -1,11 +1,8 @@
-import 'package:dices_supporter/enum/Enum.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'DiceMain.dart';
-import 'bean/SettingBean.dart';
 
 SharedPreferences prefs;
 
@@ -26,12 +23,9 @@ void main() async {
   prefs = await SharedPreferences.getInstance();
 }
 
-
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,

@@ -46,26 +46,26 @@ class _DiceMainState extends State<DiceMain> {
     super.initState();
     updateSettingBean();
     setRealDiceColor(SettingBean.diceColor);
-
   }
 
-  void updateSettingBean(){
+  void updateSettingBean() {
     setState(() {
-      SettingBean.lang = prefs.getString('language') ?? describeEnum(Language.en);
-      SettingBean.diceImgPath = prefs.getString('diceImgPath') ?? describeEnum(DiceImgPath.normal);
-      SettingBean.diceColor = prefs.getString('diceColor') ?? describeEnum(DiceColor.blue);
+      SettingBean.diceImgPath =
+          prefs.getString('diceImgPath') ?? describeEnum(DiceImgPath.normal);
+      SettingBean.diceColor =
+          prefs.getString('diceColor') ?? describeEnum(DiceColor.blue);
       setRealDiceColor(SettingBean.diceColor);
     });
   }
 
-  void setRealDiceColor(String color){
-    if(color == describeEnum(DiceColor.blue)){
+  void setRealDiceColor(String color) {
+    if (color == describeEnum(DiceColor.blue)) {
       SettingBean.realDiceColor = Colors.blue;
-    } else if(color == describeEnum(DiceColor.red)){
+    } else if (color == describeEnum(DiceColor.red)) {
       SettingBean.realDiceColor = Colors.red;
-    }else if(color == describeEnum(DiceColor.amber)){
+    } else if (color == describeEnum(DiceColor.amber)) {
       SettingBean.realDiceColor = Colors.amber;
-    }else if(color == describeEnum(DiceColor.green)){
+    } else if (color == describeEnum(DiceColor.green)) {
       SettingBean.realDiceColor = Colors.green;
     }
   }
@@ -164,6 +164,13 @@ class _DiceMainState extends State<DiceMain> {
         diceBeanList[idNum].diceSelected = true;
       }
     });
+  }
+
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    SettingBean.lang =
+        context.locale.toString() ?? describeEnum(Language.en_US);
   }
 
   @override

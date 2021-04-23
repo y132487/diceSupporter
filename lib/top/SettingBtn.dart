@@ -15,9 +15,7 @@ class SettingBtn extends StatefulWidget {
 }
 
 class _SettingBtnState extends State<SettingBtn> {
-
-  void setSettingBeanToXml(){
-    prefs.setString('language', SettingBean.lang);
+  void setSettingBeanToXml() {
     prefs.setString('diceImgPath', SettingBean.diceImgPath);
     prefs.setString('diceColor', SettingBean.diceColor);
     widget.updateSettingBean();
@@ -33,10 +31,10 @@ class _SettingBtnState extends State<SettingBtn> {
           onPressed: () {
             Navigator.of(context).push(
               PageTransition(
-                  child: SettingMain(setSettingBeanToXml),
-                  type: PageTransitionType.leftToRight,
-                  duration: Duration(milliseconds:100),
-                  reverseDuration: Duration(milliseconds:100),
+                child: SettingMain(setSettingBeanToXml),
+                type: PageTransitionType.leftToRight,
+                duration: Duration(milliseconds: 100),
+                reverseDuration: Duration(milliseconds: 100),
               ),
             );
           },
