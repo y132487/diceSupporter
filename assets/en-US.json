@@ -6,5 +6,21 @@
     "btnRoll":"ROLL",
     "btnReRoll":"REROLL",
     "tstPlzFirstRoll":"Nope! After Roll",
-    "tstNoSelectedDices":"Nope! After select Dices"
+    "tstNoSelectedDices":"Nope! After select Dices",
+    "settingMenuTitle": "Setting Menu",
+    "setLangTitle":"Language",
+    "setSelectedColorTitle":"Selected Dices Color",
+    "setDiceImgTitle":"Dice Image",
+    "setDeveloperTitle":"Developer",
+    "setVersionTitle":"Version",
+    "setLangEn":"English",
+    "setLangJa":"Japanese",
+    "setLangKo":"Korean",
+    "setDiceImgNor":"Normal",
+    "setDiceImgNum":"Numbers",
+    "setDiceImgKanji":"Kanji",
+    "setSelectedColorBlue":"Blue",
+    "setSelectedColorRed":"Red",
+    "setSelectedColorAmber":"Amber",
+    "setSelectedColorGreen":"Green"
 }

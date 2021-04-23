@@ -14,6 +14,7 @@ dependencies:
   fluttertoast: ^4.0.1
   flutter:
     sdk: flutter
+  page_transition : ^1.1.7+6
 
   cupertino_icons: ^1.0.2
 

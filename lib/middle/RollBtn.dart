@@ -15,7 +15,7 @@ class _RollBtnState extends State<RollBtn> {
     return InkWell(
       child: Container(
         child: Center(
-          child: Text("ROLL".tr()),
+          child: Text("btnRoll".tr()),
         ),
         decoration: BoxDecoration(border: Border.all()),
       ),

@@ -1,15 +1,20 @@
 import 'dart:math';
 
 import 'package:dices_supporter/bean/DiceBean.dart';
+import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:dices_supporter/bottom/ViewDices.dart';
 import 'package:dices_supporter/middle/ReRollBtn.dart';
 import 'package:dices_supporter/middle/Result.dart';
 import 'package:dices_supporter/middle/RollBtn.dart';
 import 'package:dices_supporter/top/DiceSetupBtn.dart';
 import 'package:dices_supporter/top/SettingBtn.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+
+import 'enum/Enum.dart';
+import 'main.dart';
 
 class DiceMain extends StatefulWidget {
   final String title;
@@ -35,6 +40,35 @@ class _DiceMainState extends State<DiceMain> {
 
   //after tapped roll button(or reroll button)
   var diceBeanList = <DiceBean>[];
+
+  @override
+  void initState() {
+    super.initState();
+    updateSettingBean();
+    setRealDiceColor(SettingBean.diceColor);
+
+  }
+
+  void updateSettingBean(){
+    setState(() {
+      SettingBean.lang = prefs.getString('language') ?? describeEnum(Language.en);
+      SettingBean.diceImgPath = prefs.getString('diceImgPath') ?? describeEnum(DiceImgPath.normal);
+      SettingBean.diceColor = prefs.getString('diceColor') ?? describeEnum(DiceColor.blue);
+      setRealDiceColor(SettingBean.diceColor);
+    });
+  }
+
+  void setRealDiceColor(String color){
+    if(color == describeEnum(DiceColor.blue)){
+      SettingBean.realDiceColor = Colors.blue;
+    } else if(color == describeEnum(DiceColor.red)){
+      SettingBean.realDiceColor = Colors.red;
+    }else if(color == describeEnum(DiceColor.amber)){
+      SettingBean.realDiceColor = Colors.amber;
+    }else if(color == describeEnum(DiceColor.green)){
+      SettingBean.realDiceColor = Colors.green;
+    }
+  }
 
   void setRolled(bool rolled) {
     setState(() {
@@ -145,7 +179,7 @@ class _DiceMainState extends State<DiceMain> {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: SettingBtn(),
+                    child: SettingBtn(updateSettingBean),
                   ),
                   Expanded(
                     flex: 5,

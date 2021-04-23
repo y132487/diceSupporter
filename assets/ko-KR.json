@@ -1,4 +1,26 @@
 {
-    "main":"메인",
-    "diceChooseTitle":"성공판정 주사위를 선택"
+    "diceChooseTitle":"주사위 갯수를 설정\n성공으로 간주할 주사위눈 설정",
+    "tapHere":"이곳을 터치해 주세요",
+    "noResult":"주사위 설정을 마친 후, [굴림] 버튼을 눌러주세요",
+    "result":"결과",
+    "btnRoll":"굴림",
+    "btnReRoll":"재굴림",
+    "tstPlzFirstRoll":"주사위를 굴린 후 눌러주세요",
+    "tstNoSelectedDices":"재굴림 할 주사위를 최소 1개 선택해주세요",
+    "settingMenuTitle": "설정 메뉴",
+    "setLangTitle":"언어",
+    "setSelectedColorTitle":"선택한 주사위의 색깔",
+    "setDiceImgTitle":"주사위 이미지",
+    "setDeveloperTitle":"개발자",
+    "setVersionTitle":"버전",
+    "setLangEn":"영어",
+    "setLangJa":"일본어",
+    "setLangKo":"한글",
+    "setDiceImgNor":"일반",
+    "setDiceImgNum":"번호",
+    "setDiceImgKanji":"한자",
+    "setSelectedColorBlue":"Blue",
+    "setSelectedColorRed":"Red",
+    "setSelectedColorAmber":"Amber",
+    "setSelectedColorGreen":"Green"
 }

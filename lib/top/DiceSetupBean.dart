@@ -1,3 +1,4 @@
+import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:flutter/material.dart';
 
 class DiceSetupBean extends StatefulWidget {
@@ -18,7 +19,7 @@ class _DiceSetupBeanState extends State<DiceSetupBean> {
           children: <Widget>[
             Container(
               child: Image.asset(
-                'images/normal/dice${widget.number}.png',
+                'images/${SettingBean.diceImgPath}/dice${widget.number}.png',
                 height:
                     MediaQuery.of(context).orientation == Orientation.portrait
                         ? constraints.maxHeight / 3

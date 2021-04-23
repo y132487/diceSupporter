@@ -1,4 +1,5 @@
 import 'package:dices_supporter/bean/DiceBean.dart';
+import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:dices_supporter/main.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -141,6 +142,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Text(diceCount.toInt().toString()),
                                   Slider(
                                     value: diceCount,
                                     min: 1,
@@ -159,12 +161,13 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Text(diceCount.toInt().toString()),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Image.asset('images/${SettingBean.diceImgPath}/dice1.png',
+                                      height: constraints.maxHeight / 20),
                                   Checkbox(
                                     value: checked1,
                                     onChanged: (bool value) {
@@ -174,13 +177,13 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/normal/dice1.png',
-                                      height: constraints.maxHeight / 20),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Image.asset('images/${SettingBean.diceImgPath}/dice2.png',
+                                      height: constraints.maxHeight / 20),
                                   Checkbox(
                                     value: checked2,
                                     onChanged: (bool value) {
@@ -190,13 +193,13 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/normal/dice2.png',
-                                      height: constraints.maxHeight / 20),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Image.asset('images/${SettingBean.diceImgPath}/dice3.png',
+                                      height: constraints.maxHeight / 20),
                                   Checkbox(
                                     value: checked3,
                                     onChanged: (bool value) {
@@ -206,13 +209,13 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/normal/dice3.png',
-                                      height: constraints.maxHeight / 20),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Image.asset('images/${SettingBean.diceImgPath}/dice4.png',
+                                      height: constraints.maxHeight / 20),
                                   Checkbox(
                                     value: checked4,
                                     onChanged: (bool value) {
@@ -222,13 +225,13 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/normal/dice4.png',
-                                      height: constraints.maxHeight / 20),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Image.asset('images/${SettingBean.diceImgPath}/dice5.png',
+                                      height: constraints.maxHeight / 20),
                                   Checkbox(
                                     value: checked5,
                                     onChanged: (bool value) {
@@ -238,13 +241,13 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/normal/dice5.png',
-                                      height: constraints.maxHeight / 20),
                                 ],
                               ),
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
+                                  Image.asset('images/${SettingBean.diceImgPath}/dice6.png',
+                                      height: constraints.maxHeight / 20),
                                   Checkbox(
                                     value: checked6,
                                     onChanged: (bool value) {
@@ -254,8 +257,6 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/normal/dice6.png',
-                                      height: constraints.maxHeight / 20),
                                 ],
                               ),
                             ],

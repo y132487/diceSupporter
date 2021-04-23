@@ -1,4 +1,5 @@
 import 'package:dices_supporter/bean/DiceBean.dart';
+import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:flutter/material.dart';
 
 class DiceBeanView extends StatefulWidget {
@@ -16,9 +17,9 @@ class _DiceBeanState extends State<DiceBeanView> {
         ? InkWell(
             child: Container(
               child: ColorFiltered(
-                colorFilter: ColorFilter.mode(Colors.blue, BlendMode.lighten),
+                colorFilter: ColorFilter.mode(SettingBean.realDiceColor, BlendMode.lighten),
                 child: Image.asset(
-                  widget.diceBean.diceImgPath,
+                  'images/${SettingBean.diceImgPath}/dice${widget.diceBean.diceNum}.png',
                 ),
               ),
             ),
@@ -30,7 +31,7 @@ class _DiceBeanState extends State<DiceBeanView> {
           )
         : InkWell(
             child: Container(
-              child: Image.asset(widget.diceBean.diceImgPath),
+              child: Image.asset('images/${SettingBean.diceImgPath}/dice${widget.diceBean.diceNum}.png'),
             ),
             onTap: () {
               setState(() {
