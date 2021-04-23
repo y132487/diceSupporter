@@ -18,7 +18,7 @@ class _DiceSetupBeanState extends State<DiceSetupBean> {
           children: <Widget>[
             Container(
               child: Image.asset(
-                'images/dice${widget.number}.png',
+                'images/normal/dice${widget.number}.png',
                 height:
                     MediaQuery.of(context).orientation == Orientation.portrait
                         ? constraints.maxHeight / 3

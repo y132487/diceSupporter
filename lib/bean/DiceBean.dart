@@ -6,6 +6,6 @@ class DiceBean {
   bool success = false;
 
   DiceBean(this.idNum, this.diceNum, this.diceSelected, this.success) {
-    diceImgPath = "images/dice${this.diceNum}.png";
+    diceImgPath = "images/normal/dice${this.diceNum}.png";
   }
 }

@@ -5,6 +5,6 @@
     "result":"RESULT",
     "btnRoll":"ROLL",
     "btnReRoll":"REROLL",
-    "tstPlzFirstRoll":"You must do Roll before Reroll",
-    "tstNoSelectedDices":"Select Dices before Reroll"
+    "tstPlzFirstRoll":"Nope! After Roll",
+    "tstNoSelectedDices":"Nope! After select Dices"
 }

@@ -174,7 +174,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/dice1.png',
+                                  Image.asset('images/normal/dice1.png',
                                       height: constraints.maxHeight / 20),
                                 ],
                               ),
@@ -190,7 +190,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/dice2.png',
+                                  Image.asset('images/normal/dice2.png',
                                       height: constraints.maxHeight / 20),
                                 ],
                               ),
@@ -206,7 +206,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/dice3.png',
+                                  Image.asset('images/normal/dice3.png',
                                       height: constraints.maxHeight / 20),
                                 ],
                               ),
@@ -222,7 +222,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/dice4.png',
+                                  Image.asset('images/normal/dice4.png',
                                       height: constraints.maxHeight / 20),
                                 ],
                               ),
@@ -238,7 +238,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/dice5.png',
+                                  Image.asset('images/normal/dice5.png',
                                       height: constraints.maxHeight / 20),
                                 ],
                               ),
@@ -254,7 +254,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       });
                                     },
                                   ),
-                                  Image.asset('images/dice6.png',
+                                  Image.asset('images/normal/dice6.png',
                                       height: constraints.maxHeight / 20),
                                 ],
                               ),
