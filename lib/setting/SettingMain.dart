@@ -38,7 +38,7 @@ class _SettingMainState extends State<SettingMain> {
                           setState(() {
                             SettingBean.lang = value;
                             widget.setSettingBeanToXml();
-                            context.locale = Locale('en', 'US');
+                            context.setLocale(Locale('en', 'US'));
                           });
                         }),
                     RadioListTile(
@@ -51,7 +51,7 @@ class _SettingMainState extends State<SettingMain> {
                           setState(() {
                             SettingBean.lang = value;
                             widget.setSettingBeanToXml();
-                            context.locale = Locale('ja', 'JP');
+                            context.setLocale(Locale('ja', 'JP'));
                           });
                         }),
                     RadioListTile(
@@ -64,7 +64,7 @@ class _SettingMainState extends State<SettingMain> {
                           setState(() {
                             SettingBean.lang = value;
                             widget.setSettingBeanToXml();
-                            context.locale = Locale('ko', 'KR');
+                            context.setLocale(Locale('ko', 'KR'));
                           });
                         }),
                   ],
