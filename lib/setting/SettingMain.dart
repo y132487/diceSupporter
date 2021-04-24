@@ -14,6 +14,20 @@ class SettingMain extends StatefulWidget {
 }
 
 class _SettingMainState extends State<SettingMain> {
+  final GlobalKey langKey = GlobalKey();
+  final GlobalKey diceImgKey = GlobalKey();
+  final GlobalKey diceColorKey = GlobalKey();
+
+  void _moveToSelectedWidget(GlobalKey key) {
+    final keyContext = key.currentContext;
+    if (keyContext != null) {
+      Future.delayed(Duration(milliseconds: 200)).then((value) {
+        Scrollable.ensureVisible(keyContext,
+            duration: Duration(milliseconds: 200));
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -26,6 +40,12 @@ class _SettingMainState extends State<SettingMain> {
             child: Column(
               children: <Widget>[
                 ExpansionTile(
+                  key: langKey,
+                  onExpansionChanged: (value) {
+                    if (value) {
+                      _moveToSelectedWidget(langKey);
+                    }
+                  },
                   title: Text("setLangTitle".tr()),
                   children: [
                     RadioListTile(
@@ -70,6 +90,12 @@ class _SettingMainState extends State<SettingMain> {
                   ],
                 ),
                 ExpansionTile(
+                  key: diceImgKey,
+                  onExpansionChanged: (value) {
+                    if (value) {
+                      _moveToSelectedWidget(diceImgKey);
+                    }
+                  },
                   title: Text("setDiceImgTitle".tr()),
                   children: [
                     RadioListTile(
@@ -111,9 +137,28 @@ class _SettingMainState extends State<SettingMain> {
                             widget.setSettingBeanToXml();
                           });
                         }),
+                    RadioListTile(
+                        title: Text("setDiceImgRome".tr()),
+                        secondary: Image.asset("images/rome/dice6.png"),
+                        controlAffinity: ListTileControlAffinity.trailing,
+                        activeColor: Colors.black,
+                        value: describeEnum(DiceImgPath.rome),
+                        groupValue: SettingBean.diceImgPath,
+                        onChanged: (value) {
+                          setState(() {
+                            SettingBean.diceImgPath = value;
+                            widget.setSettingBeanToXml();
+                          });
+                        }),
                   ],
                 ),
                 ExpansionTile(
+                  key: diceColorKey,
+                  onExpansionChanged: (value) {
+                    if (value) {
+                      _moveToSelectedWidget(diceColorKey);
+                    }
+                  },
                   title: Text("setSelectedColorTitle".tr()),
                   children: [
                     RadioListTile(

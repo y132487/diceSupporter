@@ -180,6 +180,7 @@ class _DiceMainState extends State<DiceMain> {
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
+            //Top
             Expanded(
               flex: 1,
               child: Row(
@@ -198,8 +199,11 @@ class _DiceMainState extends State<DiceMain> {
                 ],
               ),
             ),
+            //Middle
             Expanded(
-              flex: 1,
+              flex: MediaQuery.of(context).orientation == Orientation.portrait
+                  ? 1
+                  : 2,
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -223,6 +227,7 @@ class _DiceMainState extends State<DiceMain> {
                 ],
               ),
             ),
+            //Bottom
             Expanded(
               flex: 10,
               child: Container(

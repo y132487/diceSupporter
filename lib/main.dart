@@ -30,11 +30,11 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: context.localizationDelegates,
       supportedLocales: context.supportedLocales,
       locale: context.locale,
-      title: 'Flutter Demo',
+      title: 'DiceSupporter',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: DiceMain(title: "main"),
+      home: DiceMain(title: "SupporterMain"),
     );
   }
 }
