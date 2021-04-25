@@ -1,5 +1,6 @@
 import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:dices_supporter/enum/Enum.dart';
+import 'package:dices_supporter/util/util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -17,6 +18,8 @@ class _SettingMainState extends State<SettingMain> {
   final GlobalKey langKey = GlobalKey();
   final GlobalKey diceImgKey = GlobalKey();
   final GlobalKey diceColorKey = GlobalKey();
+
+  int easterEggCount = 0;
 
   void _moveToSelectedWidget(GlobalKey key) {
     final keyContext = key.currentContext;
@@ -216,11 +219,31 @@ class _SettingMainState extends State<SettingMain> {
                   ],
                 ),
                 ListTile(
-                  title: Text("setDeveloperTitle".tr()),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: Text("setVersionTitle".tr()),
+                  title: Text("setVersionTitle".tr() + Util.version),
+                  onTap: () {
+                    easterEggCount++;
+                    if(easterEggCount > 7){
+                      easterEggCount = 0;
+                      return showDialog(context: context, barrierDismissible: false ,builder: (context){
+                        return AlertDialog(
+                          title: Text("easterTitle".tr()),
+                          content: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Image.asset('images/easterEgg/easterEgg.png'),
+                            ],
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              child: Text("easterBtn".tr()),
+                              onPressed: (){
+                                Navigator.of(context).pop();
+                              }, )
+                          ],
+                        );
+                      });
+                    }
+                  },
                 ),
               ],
             ),

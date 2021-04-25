@@ -13,7 +13,7 @@
     "setSelectedColorTitle":"Choosed Dices Color",
     "setDiceImgTitle":"Dice Image",
     "setDeveloperTitle":"Developer",
-    "setVersionTitle":"Version",
+    "setVersionTitle":"Version  ",
     "setLangEn":"English",
     "setLangJa":"Japanese",
     "setLangKo":"Korean",
@@ -24,5 +24,7 @@
     "setSelectedColorBlue":"Blue",
     "setSelectedColorRed":"Red",
     "setSelectedColorAmber":"Amber",
-    "setSelectedColorGreen":"Green"
+    "setSelectedColorGreen":"Green",
+    "easterTitle":"what's up!?" ,
+    "easterBtn":"well..nothing"
 }

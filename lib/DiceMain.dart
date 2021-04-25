@@ -177,6 +177,7 @@ class _DiceMainState extends State<DiceMain> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        backgroundColor: Colors.grey[100],
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
@@ -199,6 +200,10 @@ class _DiceMainState extends State<DiceMain> {
                 ],
               ),
             ),
+            Divider(
+              color: Colors.grey,
+              height: 10.0,
+            ),
             //Middle
             Expanded(
               flex: MediaQuery.of(context).orientation == Orientation.portrait
@@ -209,6 +214,7 @@ class _DiceMainState extends State<DiceMain> {
                   Expanded(
                     flex: 1,
                     child: Container(
+                      padding: EdgeInsets.only(left: 5),
                       child: ReRollBtn(reRollToResult),
                     ),
                   ),
@@ -221,16 +227,25 @@ class _DiceMainState extends State<DiceMain> {
                   Expanded(
                     flex: 1,
                     child: Container(
+                      padding: EdgeInsets.only(right: 5),
                       child: RollBtn(setRolled, rollToResult),
                     ),
                   ),
                 ],
               ),
             ),
-            //Bottom
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+            ),            //Bottom
             Expanded(
               flex: 10,
               child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      colors: [Colors.grey[100], Colors.grey],
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter),
+                ),
                 child: Center(
                   child: ViewDices(rolled, diceBeanList, updateSelectedDice),
                 ),

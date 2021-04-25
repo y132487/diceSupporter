@@ -136,7 +136,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                 diceCount.toInt().toString(),
                             style: TextStyle(fontWeight: FontWeight.bold),
                           ),
-                          // combobox
+                          // slidebar
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -194,119 +194,122 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                             color: Colors.grey,
                             height: 10.0,
                           ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Text("successDiceTitle".tr(),
+                                style: TextStyle(
+                                    fontWeight: FontWeight.bold)),
+                          ),
                           Flexible(
-                            child: SingleChildScrollView(
-                              child: Column(
-                                children: [
-                                  Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Text("successDiceTitle".tr(),
-                                        style: TextStyle(
-                                            fontWeight: FontWeight.bold)),
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'images/${SettingBean.diceImgPath}/dice1.png',
-                                          height: constraints.maxHeight / 20),
-                                      Checkbox(
-                                        value: checked1,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            checked1 = value;
-                                            _setCheckedToXml(1, value);
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'images/${SettingBean.diceImgPath}/dice2.png',
-                                          height: constraints.maxHeight / 20),
-                                      Checkbox(
-                                        value: checked2,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            checked2 = value;
-                                            _setCheckedToXml(2, value);
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'images/${SettingBean.diceImgPath}/dice3.png',
-                                          height: constraints.maxHeight / 20),
-                                      Checkbox(
-                                        value: checked3,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            checked3 = value;
-                                            _setCheckedToXml(3, value);
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'images/${SettingBean.diceImgPath}/dice4.png',
-                                          height: constraints.maxHeight / 20),
-                                      Checkbox(
-                                        value: checked4,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            checked4 = value;
-                                            _setCheckedToXml(4, value);
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'images/${SettingBean.diceImgPath}/dice5.png',
-                                          height: constraints.maxHeight / 20),
-                                      Checkbox(
-                                        value: checked5,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            checked5 = value;
-                                            _setCheckedToXml(5, value);
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Image.asset(
-                                          'images/${SettingBean.diceImgPath}/dice6.png',
-                                          height: constraints.maxHeight / 20),
-                                      Checkbox(
-                                        value: checked6,
-                                        onChanged: (bool value) {
-                                          setState(() {
-                                            checked6 = value;
-                                            _setCheckedToXml(6, value);
-                                          });
-                                        },
-                                      ),
-                                    ],
-                                  ),
-                                ],
+                            child: Scrollbar(
+                              isAlwaysShown: true,
+                              child: SingleChildScrollView(
+                                child: Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                            'images/${SettingBean.diceImgPath}/dice1.png',
+                                            height: constraints.maxHeight / 20),
+                                        Checkbox(
+                                          value: checked1,
+                                          onChanged: (bool value) {
+                                            setState(() {
+                                              checked1 = value;
+                                              _setCheckedToXml(1, value);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                            'images/${SettingBean.diceImgPath}/dice2.png',
+                                            height: constraints.maxHeight / 20),
+                                        Checkbox(
+                                          value: checked2,
+                                          onChanged: (bool value) {
+                                            setState(() {
+                                              checked2 = value;
+                                              _setCheckedToXml(2, value);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                            'images/${SettingBean.diceImgPath}/dice3.png',
+                                            height: constraints.maxHeight / 20),
+                                        Checkbox(
+                                          value: checked3,
+                                          onChanged: (bool value) {
+                                            setState(() {
+                                              checked3 = value;
+                                              _setCheckedToXml(3, value);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                            'images/${SettingBean.diceImgPath}/dice4.png',
+                                            height: constraints.maxHeight / 20),
+                                        Checkbox(
+                                          value: checked4,
+                                          onChanged: (bool value) {
+                                            setState(() {
+                                              checked4 = value;
+                                              _setCheckedToXml(4, value);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                            'images/${SettingBean.diceImgPath}/dice5.png',
+                                            height: constraints.maxHeight / 20),
+                                        Checkbox(
+                                          value: checked5,
+                                          onChanged: (bool value) {
+                                            setState(() {
+                                              checked5 = value;
+                                              _setCheckedToXml(5, value);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                            'images/${SettingBean.diceImgPath}/dice6.png',
+                                            height: constraints.maxHeight / 20),
+                                        Checkbox(
+                                          value: checked6,
+                                          onChanged: (bool value) {
+                                            setState(() {
+                                              checked6 = value;
+                                              _setCheckedToXml(6, value);
+                                            });
+                                          },
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           ),

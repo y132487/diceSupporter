@@ -13,7 +13,7 @@
     "setSelectedColorTitle":"選択済みのダイス色",
     "setDiceImgTitle":"ダイスのイメージ",
     "setDeveloperTitle":"開発者",
-    "setVersionTitle":"バージョン",
+    "setVersionTitle":"バージョン  ",
     "setLangEn":"英語",
     "setLangJa":"日本語",
     "setLangKo":"ハングル",
@@ -24,5 +24,7 @@
     "setSelectedColorBlue":"Blue",
     "setSelectedColorRed":"Red",
     "setSelectedColorAmber":"Amber",
-    "setSelectedColorGreen":"Green"
+    "setSelectedColorGreen":"Green",
+    "easterTitle":"おや!?" ,
+    "easterBtn":"なんでもない.."
 }

@@ -13,7 +13,7 @@
     "setSelectedColorTitle":"선택한 주사위의 색깔",
     "setDiceImgTitle":"주사위 이미지",
     "setDeveloperTitle":"개발자",
-    "setVersionTitle":"버전",
+    "setVersionTitle":"버전  ",
     "setLangEn":"영어",
     "setLangJa":"일본어",
     "setLangKo":"한글",
@@ -24,5 +24,7 @@
     "setSelectedColorBlue":"Blue",
     "setSelectedColorRed":"Red",
     "setSelectedColorAmber":"Amber",
-    "setSelectedColorGreen":"Green"
+    "setSelectedColorGreen":"Green",
+    "easterTitle":"롸!?" ,
+    "easterBtn":"ㅈㅅ염.."
 }

@@ -31,7 +31,7 @@ class _ResultState extends State<Result> {
                       fontWeight: FontWeight.bold),
                 ),
         ),
-        decoration: BoxDecoration(border: Border.all()),
+        //decoration: BoxDecoration(border: Border.all()),
       ),
     );
   }

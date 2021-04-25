@@ -14,10 +14,18 @@ class _RollBtnState extends State<RollBtn> {
   Widget build(BuildContext context) {
     return InkWell(
       child: Container(
+
         child: Center(
-          child: Text("btnRoll".tr()),
+          child: Text("btnRoll".tr(),style: TextStyle(fontWeight: FontWeight.bold)),
         ),
-        decoration: BoxDecoration(border: Border.all()),
+        decoration: BoxDecoration(
+          color: Colors.grey[100],
+          borderRadius: BorderRadius.all( Radius.circular(40), ),
+          boxShadow: [
+            BoxShadow( color: Colors.grey[500], offset: Offset(0.5, 0.5), blurRadius: 2.0, spreadRadius: 1.0, ),
+            BoxShadow( color: Colors.white, offset: Offset(-0.5, -0.5), blurRadius: 2.0, spreadRadius: 1.0, ),
+          ],
+        ),
       ),
       onTap: () {
         setState(() {

@@ -21,9 +21,9 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_native_splash: ^1.1.8+4
 
 flutter:
-
   uses-material-design: true
   assets:
     - assets/en-US.json
@@ -35,4 +35,11 @@ flutter:
     - images/dice4.png
     - images/dice5.png
     - images/dice6.png
+    - images/easterEgg/easterEgg.png
+    - android/app/src/main/res/values/
 
+flutter_native_splash:
+  background_image: "images/splash/splash.png"
+
+
+  #flutter pub pub run flutter_native_splash:create <-스플래시 적용시엔 터미널에 입력할 것
