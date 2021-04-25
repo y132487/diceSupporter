@@ -15,6 +15,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'enum/Enum.dart';
 import 'main.dart';
+import 'dart:ui' as ui;
+import 'dart:io' show Platform;
 
 class DiceMain extends StatefulWidget {
   final String title;
@@ -169,8 +171,25 @@ class _DiceMainState extends State<DiceMain> {
   @override
   void didChangeDependencies() {
     super.didChangeDependencies();
-    SettingBean.lang =
-        context.locale.toString() ?? describeEnum(Language.en_US);
+    //app first startup language setting
+    bool firstStartUp = prefs.getBool('firstStartUp') ?? false;
+    if (!firstStartUp) {
+      String languageCode = Platform.localeName.split('_')[0];
+      if ("ja" == languageCode) {
+        SettingBean.lang = describeEnum(Language.ja_JP);
+        context.setLocale(Locale('ja', 'JP'));
+      } else if ("ko" == languageCode) {
+        SettingBean.lang = describeEnum(Language.ko_KR);
+        context.setLocale(Locale('ko', 'KR'));
+      } else {
+        SettingBean.lang = describeEnum(Language.en_US);
+        context.setLocale(Locale('en', 'US'));
+      }
+      prefs.setBool('firstStartUp', true);
+    } else {
+      SettingBean.lang = context.locale.toString() ??
+          Localizations.localeOf(context).toString();
+    }
   }
 
   @override
@@ -236,7 +255,7 @@ class _DiceMainState extends State<DiceMain> {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
-            ),            //Bottom
+            ), //Bottom
             Expanded(
               flex: 10,
               child: Container(
