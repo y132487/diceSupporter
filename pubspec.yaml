@@ -40,6 +40,7 @@ flutter:
 
 flutter_native_splash:
   background_image: "images/splash/splash.png"
+  fullscreen: true
 
 
   #flutter pub pub run flutter_native_splash:create <-스플래시 적용시엔 터미널에 입력할 것
