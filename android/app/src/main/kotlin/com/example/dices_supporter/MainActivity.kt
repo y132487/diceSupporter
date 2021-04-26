@@ -1,4 +1,4 @@
-package com.example.dices_supporter
+package com.bd.dices_supporter
 
 import io.flutter.embedding.android.FlutterActivity
 
