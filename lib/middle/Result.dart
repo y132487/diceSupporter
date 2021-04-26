@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 class Result extends StatefulWidget {
   final int result;
@@ -11,9 +10,8 @@ class Result extends StatefulWidget {
 }
 
 class _ResultState extends State<Result> {
-
-  String getResultText(bool rolled){
-    if(rolled){
+  String getResultText(bool rolled) {
+    if (rolled) {
       return widget.result.toString();
     }
     return "0";
@@ -25,13 +23,12 @@ class _ResultState extends State<Result> {
       builder: (context, constraints) => Container(
         child: Center(
           child: Text(
-                  getResultText(widget.rolled),
-                  style: TextStyle(
-                      fontSize: constraints.maxHeight / 1.5,
-                      fontWeight: FontWeight.bold),
-                ),
+            getResultText(widget.rolled),
+            style: TextStyle(
+                fontSize: constraints.maxHeight / 1.5,
+                fontWeight: FontWeight.bold),
+          ),
         ),
-        //decoration: BoxDecoration(border: Border.all()),
       ),
     );
   }

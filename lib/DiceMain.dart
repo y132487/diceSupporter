@@ -15,7 +15,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 
 import 'enum/Enum.dart';
 import 'main.dart';
-import 'dart:ui' as ui;
 import 'dart:io' show Platform;
 
 class DiceMain extends StatefulWidget {
