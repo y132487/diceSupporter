@@ -26,5 +26,6 @@
     "setSelectedColorAmber":"Amber",
     "setSelectedColorGreen":"Green",
     "easterTitle":"what's up!?" ,
-    "easterBtn":"well..nothing"
+    "easterBtn":"well..nothing",
+    "setBgColorTitle": "Background Color"
 }

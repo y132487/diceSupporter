@@ -1,4 +1,5 @@
 import 'package:dices_supporter/bean/DiceBean.dart';
+import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:dices_supporter/bottom/DiceBeanView.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -10,6 +11,7 @@ class ViewDices extends StatefulWidget {
   var diceBeanList = <DiceBean>[];
 
   ViewDices(this.rolled, this.diceBeanList, this.updateSelectedDice);
+
   @override
   _ViewDicesState createState() => _ViewDicesState();
 }
@@ -36,7 +38,11 @@ class _ViewDicesState extends State<ViewDices> {
 
     return !widget.rolled
         ? Container(
-            child: Text("noResult".tr()),
+            child: Text(
+              "noResult".tr(),
+              style: TextStyle(
+                  color: SettingBean.fontColor),
+            ),
           )
         : GridView.count(
             crossAxisCount:

@@ -4,11 +4,13 @@ import 'package:dices_supporter/util/util.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:lite_rolling_switch/lite_rolling_switch.dart';
 
 class SettingMain extends StatefulWidget {
   Function setSettingBeanToXml;
+  Function setBgColorToXml;
 
-  SettingMain(this.setSettingBeanToXml);
+  SettingMain(this.setSettingBeanToXml, this.setBgColorToXml);
 
   @override
   _SettingMainState createState() => _SettingMainState();
@@ -218,30 +220,61 @@ class _SettingMainState extends State<SettingMain> {
                         }),
                   ],
                 ),
+                Container(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        flex: 1,
+                        child: ListTile(
+                          title: Text("setBgColorTitle".tr()),
+                        ),
+                      ),
+                      LiteRollingSwitch(
+                        //initial value
+                        value: SettingBean.bgColorSet,
+                        textOn: 'Light',
+                        textOff: 'Dark',
+                        colorOn: Colors.grey,
+                        colorOff: Colors.black,
+                        iconOn: Icons.wb_sunny_rounded,
+                        iconOff: Icons.wb_cloudy_sharp,
+                        textSize: 16.0,
+                        onChanged: (bool state) {
+                          SettingBean.bgColorSet = state;
+                          widget.setBgColorToXml();
+                        },
+                      ),
+                    ],
+                  ),
+                ),
                 ListTile(
                   title: Text("setVersionTitle".tr() + Util.version),
                   onTap: () {
                     easterEggCount++;
-                    if(easterEggCount > 7){
+                    if (easterEggCount > 7) {
                       easterEggCount = 0;
-                      return showDialog(context: context, barrierDismissible: false ,builder: (context){
-                        return AlertDialog(
-                          title: Text("easterTitle".tr()),
-                          content: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Image.asset('images/easterEgg/easterEgg.png'),
-                            ],
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              child: Text("easterBtn".tr()),
-                              onPressed: (){
-                                Navigator.of(context).pop();
-                              }, )
-                          ],
-                        );
-                      });
+                      return showDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          builder: (context) {
+                            return AlertDialog(
+                              title: Text("easterTitle".tr()),
+                              content: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Image.asset('images/easterEgg/easterEgg.png'),
+                                ],
+                              ),
+                              actions: <Widget>[
+                                TextButton(
+                                  child: Text("easterBtn".tr()),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                )
+                              ],
+                            );
+                          });
                     }
                   },
                 ),

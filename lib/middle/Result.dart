@@ -1,8 +1,10 @@
+import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:flutter/material.dart';
 
 class Result extends StatefulWidget {
   final int result;
   bool rolled = false;
+
   Result(this.result, this.rolled);
 
   @override
@@ -26,7 +28,8 @@ class _ResultState extends State<Result> {
             getResultText(widget.rolled),
             style: TextStyle(
                 fontSize: constraints.maxHeight / 1.5,
-                fontWeight: FontWeight.bold),
+                fontWeight: FontWeight.bold,
+                color: SettingBean.fontColor),
           ),
         ),
       ),

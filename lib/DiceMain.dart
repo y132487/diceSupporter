@@ -46,7 +46,7 @@ class _DiceMainState extends State<DiceMain> {
   void initState() {
     super.initState();
     updateSettingBean();
-    setRealDiceColor(SettingBean.diceColor);
+    updateBgColorSetBean();
   }
 
   void updateSettingBean() {
@@ -69,6 +69,26 @@ class _DiceMainState extends State<DiceMain> {
     } else if (color == describeEnum(DiceColor.green)) {
       SettingBean.realDiceColor = Colors.green;
     }
+  }
+
+  void updateBgColorSetBean(){
+    setState(() {
+      SettingBean.bgColorSet = prefs.getBool('bgColorSet') ?? true;
+      setBgColorStartEnd(SettingBean.bgColorSet);
+    });
+  }
+
+  void setBgColorStartEnd(bool bgColorSet){
+    if(bgColorSet){
+      SettingBean.bgColorStart = Colors.grey[100];
+      SettingBean.bgColorEnd = Colors.grey;
+      SettingBean.fontColor = Colors.black;
+    }else{
+      SettingBean.bgColorStart = Colors.black;
+      SettingBean.bgColorEnd = Colors.grey[900];
+      SettingBean.fontColor = Colors.white;
+    }
+
   }
 
   void setRolled(bool rolled) {
@@ -195,7 +215,7 @@ class _DiceMainState extends State<DiceMain> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey[100],
+        backgroundColor: SettingBean.bgColorStart,
         body: Column(
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
@@ -206,7 +226,7 @@ class _DiceMainState extends State<DiceMain> {
                 children: <Widget>[
                   Expanded(
                     flex: 1,
-                    child: SettingBtn(updateSettingBean),
+                    child: SettingBtn(updateSettingBean,updateBgColorSetBean),
                   ),
                   Expanded(
                     flex: 5,
@@ -260,7 +280,7 @@ class _DiceMainState extends State<DiceMain> {
               child: Container(
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
-                      colors: [Colors.grey[100], Colors.grey],
+                      colors: [SettingBean.bgColorStart, SettingBean.bgColorEnd],
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter),
                 ),

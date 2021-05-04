@@ -14,6 +14,7 @@ class DiceSetupBtn extends StatefulWidget {
   final Function updateCheckedList;
   final Function setRolled;
   var diceBeanList = <DiceBean>[];
+
   DiceSetupBtn(this.setDiceNum, this.setCheckedList, this.updateCheckedList,
       this.setRolled, this.diceBeanList);
 
@@ -110,7 +111,11 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                 !checked4 &&
                 !checked5 &&
                 !checked6)
-              Center(child: Text("tapHere".tr())),
+              Center(
+                  child: Text(
+                "tapHere".tr(),
+                style: TextStyle(color: SettingBean.fontColor),
+              )),
             if (checked1) DiceSetupBean(1, _getEachResult(1)),
             if (checked2) DiceSetupBean(2, _getEachResult(2)),
             if (checked3) DiceSetupBean(3, _getEachResult(3)),
@@ -197,8 +202,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                           Padding(
                             padding: const EdgeInsets.all(8.0),
                             child: Text("successDiceTitle".tr(),
-                                style: TextStyle(
-                                    fontWeight: FontWeight.bold)),
+                                style: TextStyle(fontWeight: FontWeight.bold)),
                           ),
                           Flexible(
                             child: Scrollbar(
@@ -207,7 +211,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                 child: Column(
                                   children: [
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                             'images/${SettingBean.diceImgPath}/dice1.png',
@@ -224,7 +229,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                             'images/${SettingBean.diceImgPath}/dice2.png',
@@ -241,7 +247,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                             'images/${SettingBean.diceImgPath}/dice3.png',
@@ -258,7 +265,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                             'images/${SettingBean.diceImgPath}/dice4.png',
@@ -275,7 +283,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                             'images/${SettingBean.diceImgPath}/dice5.png',
@@ -292,7 +301,8 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                       ],
                                     ),
                                     Row(
-                                      mainAxisAlignment: MainAxisAlignment.center,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
                                       children: [
                                         Image.asset(
                                             'images/${SettingBean.diceImgPath}/dice6.png',

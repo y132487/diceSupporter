@@ -26,5 +26,6 @@
     "setSelectedColorAmber":"Amber",
     "setSelectedColorGreen":"Green",
     "easterTitle":"おや!?" ,
-    "easterBtn":"なんでもない.."
+    "easterBtn":"なんでもない..",
+    "setBgColorTitle": "背景色"
 }

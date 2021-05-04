@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 class DiceSetupBean extends StatefulWidget {
   final int number;
   final int resultNum;
+
   DiceSetupBean(this.number, this.resultNum);
 
   @override
@@ -35,7 +36,8 @@ class _DiceSetupBeanState extends State<DiceSetupBean> {
                             Orientation.portrait
                         ? constraints.maxHeight / 4
                         : constraints.maxHeight / 2,
-                    fontWeight: FontWeight.bold),
+                    fontWeight: FontWeight.bold,
+                    color: SettingBean.fontColor),
               ),
             ),
           ],
