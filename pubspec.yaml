@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 publish_to: 'none' 
 
-version: 1.0.0+3
+version: 1.0.0+4   #app bundle개시시 +X부분을 수정하여 버전을 갱신할것
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
