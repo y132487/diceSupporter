@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dices_supporter/bean/DiceBean.dart';
 import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:dices_supporter/main.dart';
@@ -34,7 +36,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
   void _setCheckedToXml(int number, bool checked) {
     widget.setRolled(false);
     setState(() {
-      prefs.setBool('checked$number', checked);
+      prefs?.setBool('checked$number', checked);
     });
     widget.updateCheckedList(number, checked);
   }
@@ -42,22 +44,22 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
   void _setDiceNumToXml(double diceNum) {
     widget.setRolled(false);
     setState(() {
-      prefs.setDouble('diceNum', diceNum);
+      prefs?.setDouble('diceNum', diceNum);
       widget.setDiceNum(diceNum);
     });
   }
 
   void _loadCheckedFromXml() {
-    checked1 = prefs.getBool('checked1') ?? false;
-    checked2 = prefs.getBool('checked2') ?? false;
-    checked3 = prefs.getBool('checked3') ?? false;
-    checked4 = prefs.getBool('checked4') ?? false;
-    checked5 = prefs.getBool('checked5') ?? false;
-    checked6 = prefs.getBool('checked6') ?? false;
+    checked1 = prefs?.getBool('checked1') ?? false;
+    checked2 = prefs?.getBool('checked2') ?? false;
+    checked3 = prefs?.getBool('checked3') ?? false;
+    checked4 = prefs?.getBool('checked4') ?? false;
+    checked5 = prefs?.getBool('checked5') ?? false;
+    checked6 = prefs?.getBool('checked6') ?? false;
   }
 
   void _loadDiceNumFromXml() {
-    this.diceCount = prefs.getDouble('diceNum') ?? 1;
+    this.diceCount = prefs?.getDouble('diceNum') ?? 1;
     widget.setDiceNum(diceCount);
   }
 
@@ -126,7 +128,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
         ),
         onTap: () {
           setState(() {});
-          return showDialog(
+          return unawaited(showDialog(
               context: context,
               builder: (context) {
                 return LayoutBuilder(
@@ -206,7 +208,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                           ),
                           Flexible(
                             child: Scrollbar(
-                              isAlwaysShown: true,
+                              thumbVisibility: true,
                               child: SingleChildScrollView(
                                 child: Column(
                                   children: [
@@ -219,9 +221,9 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                             height: constraints.maxHeight / 20),
                                         Checkbox(
                                           value: checked1,
-                                          onChanged: (bool value) {
+                                          onChanged: (bool? value) {
                                             setState(() {
-                                              checked1 = value;
+                                              checked1 = value!;
                                               _setCheckedToXml(1, value);
                                             });
                                           },
@@ -237,9 +239,9 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                             height: constraints.maxHeight / 20),
                                         Checkbox(
                                           value: checked2,
-                                          onChanged: (bool value) {
+                                          onChanged: (bool? value) {
                                             setState(() {
-                                              checked2 = value;
+                                              checked2 = value!;
                                               _setCheckedToXml(2, value);
                                             });
                                           },
@@ -255,9 +257,9 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                             height: constraints.maxHeight / 20),
                                         Checkbox(
                                           value: checked3,
-                                          onChanged: (bool value) {
+                                          onChanged: (bool? value) {
                                             setState(() {
-                                              checked3 = value;
+                                              checked3 = value!;
                                               _setCheckedToXml(3, value);
                                             });
                                           },
@@ -273,9 +275,9 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                             height: constraints.maxHeight / 20),
                                         Checkbox(
                                           value: checked4,
-                                          onChanged: (bool value) {
+                                          onChanged: (bool? value) {
                                             setState(() {
-                                              checked4 = value;
+                                              checked4 = value!;
                                               _setCheckedToXml(4, value);
                                             });
                                           },
@@ -291,9 +293,9 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                             height: constraints.maxHeight / 20),
                                         Checkbox(
                                           value: checked5,
-                                          onChanged: (bool value) {
+                                          onChanged: (bool? value) {
                                             setState(() {
-                                              checked5 = value;
+                                              checked5 = value!;
                                               _setCheckedToXml(5, value);
                                             });
                                           },
@@ -309,9 +311,9 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                                             height: constraints.maxHeight / 20),
                                         Checkbox(
                                           value: checked6,
-                                          onChanged: (bool value) {
+                                          onChanged: (bool? value) {
                                             setState(() {
-                                              checked6 = value;
+                                              checked6 = value!;
                                               _setCheckedToXml(6, value);
                                             });
                                           },
@@ -328,7 +330,7 @@ class _DiceSetupBtnState extends State<DiceSetupBtn> {
                     );
                   }),
                 );
-              });
+              }));
         },
       ),
     );

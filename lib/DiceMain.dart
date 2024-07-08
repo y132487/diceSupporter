@@ -19,7 +19,7 @@ import 'dart:io' show Platform;
 
 class DiceMain extends StatefulWidget {
   final String title;
-  DiceMain({Key key, this.title}) : super(key: key);
+  DiceMain({Key? key, required this.title}) : super(key: key);
 
   @override
   _DiceMainState createState() => _DiceMainState();
@@ -52,9 +52,9 @@ class _DiceMainState extends State<DiceMain> {
   void updateSettingBean() {
     setState(() {
       SettingBean.diceImgPath =
-          prefs.getString('diceImgPath') ?? describeEnum(DiceImgPath.normal);
+          prefs?.getString('diceImgPath') ?? describeEnum(DiceImgPath.normal);
       SettingBean.diceColor =
-          prefs.getString('diceColor') ?? describeEnum(DiceColor.blue);
+          prefs?.getString('diceColor') ?? describeEnum(DiceColor.blue);
       setRealDiceColor(SettingBean.diceColor);
     });
   }
@@ -73,19 +73,19 @@ class _DiceMainState extends State<DiceMain> {
 
   void updateBgColorSetBean(){
     setState(() {
-      SettingBean.bgColorSet = prefs.getBool('bgColorSet') ?? true;
+      SettingBean.bgColorSet = prefs?.getBool('bgColorSet') ?? true;
       setBgColorStartEnd(SettingBean.bgColorSet);
     });
   }
 
   void setBgColorStartEnd(bool bgColorSet){
     if(bgColorSet){
-      SettingBean.bgColorStart = Colors.grey[100];
+      SettingBean.bgColorStart = Colors.grey[100]!;
       SettingBean.bgColorEnd = Colors.grey;
       SettingBean.fontColor = Colors.black;
     }else{
       SettingBean.bgColorStart = Colors.black;
-      SettingBean.bgColorEnd = Colors.grey[900];
+      SettingBean.bgColorEnd = Colors.grey[900]!;
       SettingBean.fontColor = Colors.white;
     }
 
@@ -191,7 +191,7 @@ class _DiceMainState extends State<DiceMain> {
   void didChangeDependencies() {
     super.didChangeDependencies();
     //app first startup language setting
-    bool firstStartUp = prefs.getBool('firstStartUp') ?? false;
+    bool firstStartUp = prefs?.getBool('firstStartUp') ?? false;
     if (!firstStartUp) {
       String languageCode = Platform.localeName.split('_')[0];
       if ("ja" == languageCode) {
@@ -204,7 +204,7 @@ class _DiceMainState extends State<DiceMain> {
         SettingBean.lang = describeEnum(Language.en_US);
         context.setLocale(Locale('en', 'US'));
       }
-      prefs.setBool('firstStartUp', true);
+      prefs?.setBool('firstStartUp', true);
     } else {
       SettingBean.lang = context.locale.toString() ??
           Localizations.localeOf(context).toString();

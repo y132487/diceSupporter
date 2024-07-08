@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:dices_supporter/bean/SettingBean.dart';
 import 'package:dices_supporter/enum/Enum.dart';
 import 'package:dices_supporter/util/util.dart';
@@ -61,7 +63,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.lang,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.lang = value;
+                            SettingBean.lang = value.toString();
                             widget.setSettingBeanToXml();
                             context.setLocale(Locale('en', 'US'));
                           });
@@ -74,7 +76,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.lang,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.lang = value;
+                            SettingBean.lang = value.toString();
                             widget.setSettingBeanToXml();
                             context.setLocale(Locale('ja', 'JP'));
                           });
@@ -87,7 +89,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.lang,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.lang = value;
+                            SettingBean.lang = value.toString();
                             widget.setSettingBeanToXml();
                             context.setLocale(Locale('ko', 'KR'));
                           });
@@ -112,7 +114,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceImgPath,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceImgPath = value;
+                            SettingBean.diceImgPath = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -125,7 +127,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceImgPath,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceImgPath = value;
+                            SettingBean.diceImgPath = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -138,7 +140,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceImgPath,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceImgPath = value;
+                            SettingBean.diceImgPath = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -151,7 +153,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceImgPath,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceImgPath = value;
+                            SettingBean.diceImgPath = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -175,7 +177,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceColor,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceColor = value;
+                            SettingBean.diceColor = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -188,7 +190,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceColor,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceColor = value;
+                            SettingBean.diceColor = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -201,7 +203,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceColor,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceColor = value;
+                            SettingBean.diceColor = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -214,7 +216,7 @@ class _SettingMainState extends State<SettingMain> {
                         groupValue: SettingBean.diceColor,
                         onChanged: (value) {
                           setState(() {
-                            SettingBean.diceColor = value;
+                            SettingBean.diceColor = value.toString();
                             widget.setSettingBeanToXml();
                           });
                         }),
@@ -242,7 +244,7 @@ class _SettingMainState extends State<SettingMain> {
                         onChanged: (bool state) {
                           SettingBean.bgColorSet = state;
                           widget.setBgColorToXml();
-                        },
+                        }, onDoubleTap: (){}, onTap: (){}, onSwipe: (){},
                       ),
                     ],
                   ),
@@ -253,30 +255,32 @@ class _SettingMainState extends State<SettingMain> {
                     easterEggCount++;
                     if (easterEggCount > 7) {
                       easterEggCount = 0;
-                      return showDialog(
-                          context: context,
-                          barrierDismissible: false,
-                          builder: (context) {
-                            return AlertDialog(
-                              title: Text("easterTitle".tr()),
-                              content: Column(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Image.asset('images/easterEgg/easterEgg.png'),
+                      return unawaited(showDialog(
+                            context: context,
+                            barrierDismissible: false,
+                            builder: (context) {
+                              return AlertDialog(
+                                title: Text("easterTitle".tr()),
+                                content: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Image.asset(
+                                        'images/easterEgg/easterEgg.png'),
+                                  ],
+                                ),
+                                actions: <Widget>[
+                                  TextButton(
+                                    child: Text("easterBtn".tr()),
+                                    onPressed: () {
+                                      Navigator.of(context).pop();
+                                    },
+                                  )
                                 ],
-                              ),
-                              actions: <Widget>[
-                                TextButton(
-                                  child: Text("easterBtn".tr()),
-                                  onPressed: () {
-                                    Navigator.of(context).pop();
-                                  },
-                                )
-                              ],
-                            );
-                          });
+                              );
+                            }));
+                      }
                     }
-                  },
+                  ,
                 ),
               ],
             ),

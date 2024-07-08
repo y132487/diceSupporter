@@ -4,7 +4,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'DiceMain.dart';
 
-SharedPreferences prefs;
+SharedPreferences? prefs;
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,7 +19,7 @@ void main() async {
       //fallbackLocale: Locale('en', 'US'),
       //startLocale: Locale('en', 'US'),
       child: MyApp()));
-  SystemChrome.setEnabledSystemUIOverlays([]);
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual, overlays: []);
   prefs = await SharedPreferences.getInstance();
 }
 

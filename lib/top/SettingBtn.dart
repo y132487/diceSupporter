@@ -17,13 +17,13 @@ class SettingBtn extends StatefulWidget {
 
 class _SettingBtnState extends State<SettingBtn> {
   void setSettingBeanToXml() {
-    prefs.setString('diceImgPath', SettingBean.diceImgPath);
-    prefs.setString('diceColor', SettingBean.diceColor);
+    prefs?.setString('diceImgPath', SettingBean.diceImgPath);
+    prefs?.setString('diceColor', SettingBean.diceColor);
     widget.updateSettingBean();
   }
 
   void setBgColorToXml() {
-    prefs.setBool('bgColorSet', SettingBean.bgColorSet);
+    prefs?.setBool('bgColorSet', SettingBean.bgColorSet);
     widget.updateBgColorSetBean();
   }
 
