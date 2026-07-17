@@ -17,7 +17,7 @@ class _DiceBeanState extends State<DiceBeanView> {
         ? InkWell(
             child: Container(
               child: ColorFiltered(
-                colorFilter: ColorFilter.mode(SettingBean.realDiceColor, BlendMode.lighten),
+                colorFilter: ColorFilter.mode(SettingBean.realDiceColor, BlendMode.modulate),
                 child: Image.asset(
                   'images/${SettingBean.diceImgPath}/dice${widget.diceBean.diceNum}.png',
                 ),
