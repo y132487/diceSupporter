@@ -11,10 +11,10 @@ environment:
 dependencies:
   shared_preferences: ^2.0.5
   easy_localization: ^3.0.3
-  fluttertoast: ^8.2.4
+  toastification: ^1.2.1
   flutter:
     sdk: flutter
-  page_transition : ^2.1.0
+  page_transition: ^2.1.1
 
   cupertino_icons: ^1.0.2
 

@@ -11,7 +11,7 @@ import 'package:dices_supporter/top/SettingBtn.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+import 'package:toastification/toastification.dart';
 
 import 'enum/Enum.dart';
 import 'main.dart';
@@ -139,7 +139,13 @@ class _DiceMainState extends State<DiceMain> {
   //Tap on REROLL Button
   void reRollToResult() {
     if (!rolled) {
-      Fluttertoast.showToast(msg: "tstPlzFirstRoll".tr());
+      toastification.show(
+        context: context,
+        type: ToastificationType.warning,
+        style: ToastificationStyle.flat,
+        title: Text("tstPlzFirstRoll".tr()),
+        autoCloseDuration: const Duration(seconds: 3),
+      );
       return;
     } else {
       bool selectedOne = false;
@@ -150,7 +156,13 @@ class _DiceMainState extends State<DiceMain> {
         }
       }
       if (!selectedOne) {
-        Fluttertoast.showToast(msg: "tstNoSelectedDices".tr());
+        toastification.show(
+          context: context,
+          type: ToastificationType.warning,
+          style: ToastificationStyle.flat,
+          title: Text("tstNoSelectedDices".tr()),
+          autoCloseDuration: const Duration(seconds: 3),
+        );
         return;
       }
     }
